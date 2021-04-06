@@ -3,7 +3,7 @@ license: GPL-3.0
 summary: Application de liaison série entre l'ordinateur (Raspberry PI) et l'Arduino
 description: |
   Application de liaison série entre l'ordinateur (Raspberry PI) et l'Arduino
-base: core20
+base: core18
 grade: stable
 confinement: classic
 
@@ -25,6 +25,7 @@ parts:
   projet-serre-serial:
     after: [setup]
     plugin: python
+    python-version: python3
     source: https://github.com/anrouxel/projet-serre-serial.git
     source-type: git
     override-pull: |
@@ -36,4 +37,5 @@ parts:
 
   setup:
     plugin: python
+    python-version: python3
     python-packages: [pyserial, pip, requests]
