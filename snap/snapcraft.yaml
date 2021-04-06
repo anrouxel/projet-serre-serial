@@ -1,0 +1,39 @@
+name: projet-serre-serial
+license: GPL-3.0
+summary: Application de liaison série entre l'ordinateur (Raspberry PI) et l'Arduino
+description: |
+  Application de liaison série entre l'ordinateur (Raspberry PI) et l'Arduino
+base: core20
+grade: stable
+confinement: classic
+
+adopt-info: projet-serre-serial
+
+architectures:
+  - build-on: arm64
+  - build-on: armhf
+  - build-on: amd64
+
+apps:
+  projet-serre-serial:
+    command: bin/projet-serre-serial
+    daemon: simple
+    restart-condition: always
+    plugs: [home, serial-port, removable-media, raw-usb]
+
+parts:
+  projet-serre-serial:
+    after: [setup]
+    plugin: python
+    source: https://github.com/anrouxel/projet-serre-serial.git
+    source-type: git
+    override-pull: |
+      snapcraftctl pull
+      snapcraftctl set-version "$(git describe --tags | sed 's/v//' | sed "s/-g/%/"  | cut -d "%" -f1)"
+    build-packages:
+      - git
+      - sed
+
+  setup:
+    plugin: python
+    python-packages: [pyserial, pip, requests]
