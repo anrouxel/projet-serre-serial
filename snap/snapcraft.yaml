@@ -16,7 +16,7 @@ architectures:
 
 apps:
   projet-serre-serial:
-    command: bin/projet-serre-serial
+    command: usr/bin/python3 $SNAP/bin/projet-serre-serial
     daemon: simple
     restart-condition: always
     plugs: [home, serial-port, removable-media, raw-usb]
