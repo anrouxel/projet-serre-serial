@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+import serial, json, time, requests
+
+
+if __name__ == '__main__':
+    ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+    ser.flush()
+    while True:
+        if ser.in_waiting > 0:
+            action = ser.readline().decode('utf-8').rstrip()
+            if action == "load":
+                resp = json.loads(requests.get('http://localhost:3000/config/read').text)
+
+                print(resp)
+
+                files = json.dumps({
+                   "serre": resp["serre"],
+                   "aromate": resp["aromate"],
+                   "configuration": resp["config"],
+                   "o2_min": resp["o2_min"],
+                   "o2_max": resp["o2_max"]
+                }, sort_keys=True)
+
+                print(files)
+                print(action)
+                ser.write(files.encode('utf-8'))
+                load_action = True
+                while load_action == True:
+                    action_ok = ser.readline().decode('utf-8').rstrip()
+                    if action_ok == "load":
+                        print(action_ok)
+                        load_action = False
+                    if action_ok == "data":
+                        print(action_ok)
+                        print("================")
+                        print("Serre :", ser.readline().decode('utf-8').rstrip())
+                        print("Aromate :", ser.readline().decode('utf-8').rstrip())
+                        print("Configuration :", ser.readline().decode('utf-8').rstrip())
+                        print("o2_min :", ser.readline().decode('utf-8').rstrip())
+                        print("o2_max :", ser.readline().decode('utf-8').rstrip())
+                        print("================")
+                        load_action = False
+            
+            if action == "save":
+                print(action)
+                load_action = True
+                while load_action == True:
+                    action_ok = ser.readline().decode('utf-8').rstrip()
+                    if action_ok == "save":
+                        print(action_ok)
+                        load_action = False
+                    if action_ok == "data":
+                        print(action_ok)
+
+                        data = json.loads(ser.readline().decode('utf-8').rstrip())
+
+                        print("================")
+                        print("Serre :", data["serre"])
+                        print("Aromate :", data["aromate"])
+                        print("Configuration :", data["configuration"])
+                        print("o2_min :", data["o2_min"])
+                        print("o2_max :", data["o2_max"])
+                        print("================")
+
+                        load_action = False
