@@ -19,7 +19,7 @@ apps:
     command: usr/bin/python3 $SNAP/bin/projet-serre-serial
     daemon: simple
     restart-condition: always
-    plugs: [home, serial-port, removable-media, raw-usb]
+    plugs: [home]
 
 parts:
   projet-serre-serial:
