@@ -34,8 +34,6 @@ parts:
     build-packages:
       - git
       - sed
-    stage-snaps:
-      - projet-serre-api/latest/edge
 
   setup:
     plugin: python
