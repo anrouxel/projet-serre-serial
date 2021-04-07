@@ -14,18 +14,12 @@ architectures:
   - build-on: armhf
   - build-on: amd64
 
-slots:
-  serial:
-    interface: serial-port
-    path: /dev/ttyACM0
-
 apps:
   projet-serre-serial:
     command: usr/bin/python3 $SNAP/bin/projet-serre-serial
     daemon: simple
     restart-condition: always
-    plugs: [home, serial-port, removable-media, raw-usb]
-    slots: serial
+    plugs: [home, serial-port, network, network-bind]
 
 parts:
   projet-serre-serial:
