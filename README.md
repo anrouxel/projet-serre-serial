@@ -13,8 +13,10 @@ Application de liaison série entre l'ordinateur (Raspberry PI) et l'Arduino
 ### Activer hotplug
 Activez le support hotplug avec la commande suivante :
     sudo snap set system experimental.hotplug=true
+
 Redémarrer snapd:
     sudo systemctl restart snapd
+
 Redémarrer le système:
     sudo systemctl reboot
 
