@@ -9,15 +9,20 @@ Application de liaison série entre l'ordinateur (Raspberry PI) et l'Arduino
 [![Installer à partir du Snap Store](https://snapcraft.io/static/images/badges/fr/snap-store-white.svg)](https://snapcraft.io/projet-serre-serial)
 
 ## Installation
+
     sudo snap install projet-serre-api
+
 ### Activer hotplug
 Activez le support hotplug avec la commande suivante :
+
     sudo snap set system experimental.hotplug=true
 
 Redémarrer snapd:
+
     sudo systemctl restart snapd
 
 Redémarrer le système:
+
     sudo systemctl reboot
 
 ## Support officiel
