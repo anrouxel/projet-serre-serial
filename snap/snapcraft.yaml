@@ -20,7 +20,6 @@ apps:
     daemon: simple
     restart-condition: always
     plugs: [home, serial-port, network, network-bind]
-    slots: arduinouno
 
 parts:
   projet-serre-serial:
@@ -35,6 +34,8 @@ parts:
     build-packages:
       - git
       - sed
+    stage-snaps:
+      - projet-serre-api/latest/edge
 
   setup:
     plugin: python
