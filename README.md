@@ -3,7 +3,7 @@
 [![projet-serre-serial](https://snapcraft.io/projet-serre-serial/badge.svg)](https://snapcraft.io/projet-serre-serial)
 [![projet-serre-serial](https://snapcraft.io/projet-serre-serial/trending.svg?name=0)](https://snapcraft.io/projet-serre-serial)
 
-API de communication entre le serveur et Android
+Application de liaison série entre l'ordinateur (Raspberry PI) et l'Arduino
 
 ## Snapcraft
 [![Installer à partir du Snap Store](https://snapcraft.io/static/images/badges/fr/snap-store-white.svg)](https://snapcraft.io/projet-serre-serial)
