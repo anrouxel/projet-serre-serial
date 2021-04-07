@@ -5,7 +5,7 @@ description: |
   Application de liaison série entre l'ordinateur (Raspberry PI) et l'Arduino
 base: core18
 grade: stable
-confinement: classic
+confinement: strict
 
 adopt-info: projet-serre-serial
 
@@ -19,7 +19,7 @@ apps:
     command: usr/bin/python3 $SNAP/bin/projet-serre-serial
     daemon: simple
     restart-condition: always
-    plugs: [home]
+    plugs: [home, serial-port, removable-media, raw-usb]
 
 parts:
   projet-serre-serial:
