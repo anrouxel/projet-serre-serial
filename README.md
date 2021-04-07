@@ -10,6 +10,10 @@ Application de liaison série entre l'ordinateur (Raspberry PI) et l'Arduino
 
 ## Installation
 
+    sudo snap install projet-serre-serial
+
+### Dépendance (obligatoire)
+
     sudo snap install projet-serre-api
 
 ### Activer hotplug
