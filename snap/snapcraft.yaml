@@ -25,6 +25,7 @@ apps:
     daemon: simple
     restart-condition: always
     plugs: [home, serial-port, removable-media, raw-usb]
+    slots: serial
 
 parts:
   projet-serre-serial:
