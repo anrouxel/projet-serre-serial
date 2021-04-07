@@ -20,6 +20,7 @@ apps:
     daemon: simple
     restart-condition: always
     plugs: [home, serial-port, network, network-bind]
+    slots: arduinouno
 
 parts:
   projet-serre-serial:
