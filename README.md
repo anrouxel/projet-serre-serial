@@ -17,11 +17,11 @@ Activez le support hotplug avec la commande suivante :
 
     sudo snap set system experimental.hotplug=true
 
-Redémarrer snapd:
+Redémarrer snapd :
 
     sudo systemctl restart snapd
 
-Redémarrer le système:
+Redémarrer le système :
 
     sudo systemctl reboot
 
