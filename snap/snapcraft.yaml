@@ -2,7 +2,27 @@ name: projet-serre-serial
 license: GPL-3.0
 summary: Application de liaison série entre l'ordinateur (Raspberry PI) et l'Arduino
 description: |
-  Application de liaison série entre l'ordinateur (Raspberry PI) et l'Arduino
+  **Dépendance (obligatoire) :**
+
+    sudo snap install projet-serre-api
+
+  **Activer hotplug :**
+
+  Activez le support hotplug avec la commande suivante :
+
+    sudo snap set system experimental.hotplug=true
+
+  Redémarrer snapd :
+
+    sudo systemctl restart snapd
+
+  Connecter la carte Arduino Uno à Projet Serre Serial :
+
+    sudo snap connect projet-serre-serial:serial-port :arduinouno
+
+  Redémarrer le système :
+
+    sudo systemctl reboot
 base: core18
 grade: stable
 confinement: strict
