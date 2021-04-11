@@ -25,6 +25,10 @@ Redémarrer snapd :
 
     sudo systemctl restart snapd
 
+Connecter la carte Arduino à Projet Serre Serial:
+
+    sudo snap connect projet-serre-serial:serial-port :arduinouno
+
 Redémarrer le système :
 
     sudo systemctl reboot
